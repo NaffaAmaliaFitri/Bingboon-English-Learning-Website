@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal Pilihan Ganda</title>
+    <link rel="stylesheet" href="ujian.css">
+    <script>
+        // Inisialisasi objek untuk menyimpan jawaban pengguna
+        let userAnswers = {};
+
+        // Fungsi untuk memproses pemilihan jawaban
+        function selectAnswer(event, questionId) {
+            // Menandai opsi yang dipilih oleh pengguna
+            const selectedOption = event.target.closest('.option');
+
+            // Memeriksa apakah opsi tersebut sudah terpilih sebelumnya
+            const isAlreadySelected = selectedOption.classList.contains('selected');
+
+            // Menghapus status terpilih dari semua opsi pada pertanyaan tertentu
+            const options = document.querySelectorAll(`#${questionId} .options .option`);
+            options.forEach(option => {
+                option.classList.remove('selected');
+            });
+
+            // Jika opsi belum terpilih sebelumnya, tandai opsi yang dipilih dan simpan jawaban pengguna
+            if (!isAlreadySelected) {
+                selectedOption.classList.add('selected');
+                userAnswers[questionId] = selectedOption.dataset.value === 'true';
+            } else {
+                // Jika opsi sudah terpilih sebelumnya, hapus jawaban pengguna
+                delete userAnswers[questionId];
+            }
+
+            // Menonaktifkan input pada semua opsi untuk pertanyaan tertentu
+            options.forEach(option => {
+                const input = option.querySelector('input');
+                input.disabled = true;
+            });
+        }
+
+
+        // Fungsi untuk menghitung skor dan menampilkan pop-up
+        // Fungsi untuk menghitung skor dan menampilkan pop-up dengan bintang
+        function submitQuiz() {
+            // Menghitung jumlah jawaban benar
+            const correctAnswersCount = Object.values(userAnswers).filter(answer => answer).length;
+
+            // Menampilkan pop-up dengan skor dan bintang
+            const popup = document.getElementById('popup');
+            const popupContent = document.createElement('div');
+
+            if (correctAnswersCount >= 7) {
+                popupContent.innerHTML = `<img src="images/bintang_score/4.png" alt="Bintang 4">`;
+            } else if (correctAnswersCount >= 5) {
+                popupContent.innerHTML = `<img src="images/bintang_score/3.png" alt="Bintang 3">`;
+            } else if (correctAnswersCount >= 3) {
+                popupContent.innerHTML = `<img src="images/bintang_score/2.png" alt="Bintang 2">`;
+            } else {
+                popupContent.innerHTML = `<img src="images/bintang_score/1.png" alt="Bintang 1">`;
+            }
+
+            popup.appendChild(popupContent);
+            popup.style.display = 'block';
+
+            // Tambahkan class 'show' setelah beberapa detik
+            setTimeout(() => {
+                const imgElement = document.querySelector('#popup img');
+                imgElement.classList.add('show');
+            }, 10);
+
+            // Sembunyikan pop-up setelah 2 detik
+            setTimeout(() => {
+                popup.style.display = 'none';
+                // Hapus elemen pop-up setelah animasi selesai
+                popup.innerHTML = '';
+
+                // Berpindah ke halaman menuPage.html
+                window.location.href = 'menuPage.html';
+            }, 2000);
+        }
+    </script>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Mengambil elemen audio
+            var audio = document.getElementById("myAudio");
+
+            // Memeriksa apakah elemen audio ditemukan sebelum menetapkan event listener
+            if (audio) {
+                // Menetapkan event listener untuk mengulang audio ketika durasinya habis
+                audio.addEventListener("ended", function() {
+                    audio.currentTime = 0; // Mengatur kembali waktu pemutaran ke awal
+                    audio.play(); // Memulai kembali pemutaran
+                });
+            } else {
+                console.error("Element with ID 'myAudio' not found.");
+            }
+        });
+    </script>
+    <audio id="myAudio" autoplay loop>
+        <source src="/music/spotifydown.com - If You're Happy and You Know It.mp3" type="mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="container">
+        <form id="quizForm" action="app.php" method="post">
+            <!-- Soal 1 -->
+            <div class="question" id="question1">
+                <h1>What color is the sun?</h1>
+                <h2>Matahari berwarna apa?</h2>
+            </div>
+            <div class="options" onclick="selectAnswer(event, 'question1')">
+                <div class="option" data-value="true" data-status="true">
+                    <img src="images/materi/COLOR/orange/140.png" alt="Option A">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/COLOR/blue/128.png" alt="Option B">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/COLOR/white/143.png" alt="Option C">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/COLOR/grey/152.png" alt="Option D">
+                </div>
+            </div>
+    
+            <!-- Soal 2 -->
+            <div class="question" id="question2">
+                <h1>What color is blood?</h1>
+                <h2>Darah berwarna apa?</h2>
+            </div>
+            <div class="options" onclick="selectAnswer(event, 'question2')">
+                <div class="option" data-value="true" data-status="true">
+                    <img src="images/materi/COLOR/red/122.png" alt="Option A">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/COLOR/pink/146.png" alt="Option B">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/COLOR/yellow/131.png" alt="Option C">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/COLOR/blue/128.png" alt="Option D">
+                </div>
+            </div>
+    
+            <!-- Soal 3 -->
+            <div class="question" id="question3">
+                <h1>Valentine day month is?</h1>
+                <h2>Valentine ada pada bulan apa?</h2>
+            </div>
+            <div class="options" onclick="selectAnswer(event, 'question3')">
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/MONTH/december/247.png" alt="Option A">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/MONTH/january/225.png" alt="Option B">
+                </div>
+                <div class="option" data-value="true" data-status="true">
+                    <img src="images/materi/MONTH/february/227.png" alt="Option C">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/MONTH/june/235.png" alt="Option D">
+                </div>
+            </div>
+            
+            <!-- Soal 4 -->
+            <div class="question" id="question4">
+                <h1>Which one is the biggest number?</h1>
+                <h2>Yang manakah angka yang paling besar?</h2>
+            </div>
+            <div class="options" onclick="selectAnswer(event, 'question4')">
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/NUMBER/100/65.png" alt="Option A">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/NUMBER/1000/68.png" alt="Option B">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/NUMBER/1000000/71.png" alt="Option C">
+                </div>
+                <div class="option" data-value="true" data-status="true">
+                    <img src="images/materi/NUMBER/1000000000/74.png" alt="Option D">
+                </div>
+            </div>
+
+            <!-- Soal 5 -->
+            <div class="question" id="question5">
+                <h1>What month is Kartini Day?</h1>
+                <h2>Hari kartini ada pada bulan apa?</h2>
+            </div>
+            <div class="options" onclick="selectAnswer(event, 'question5')">
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/MONTH/march/229.png" alt="Option A">
+                </div>
+                <div class="option" data-value="true" data-status="true">
+                    <img src="images/materi/MONTH/april/231.png" alt="Option B">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/MONTH/august/239.png" alt="Option C">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/MONTH/october/243.png" alt="Option D">
+                </div>
+            </div>
+
+            <!-- Soal 6 -->
+            <div class="question" id="question6">
+                <h1>Now is Tuesday. The next day is…</h1>
+                <h2>Sekarang adalah Selasa. Hari selanjutnya adalah...</h2>
+            </div>
+            <div class="options" onclick="selectAnswer(event, 'question6')">
+                <div class="option" data-value="true" data-status="true">
+                    <img src="images/materi/DAYS/wednesday/207.png" alt="Option A">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/DAYS/friday/211.png" alt="Option B">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/DAYS/saturday/213.png" alt="Option C">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/DAYS/monday/203.png" alt="Option D">
+                </div>
+            </div>
+
+            <!-- Soal 7 -->
+            <div class="question" id="question7">
+                <h1>We wear hat on our…</h1>
+                <h2>Kita menggunakan topi pada...</h2>
+            </div>
+            <div class="options" onclick="selectAnswer(event, 'question7')">
+                <div class="option" data-value="true" data-status="true">
+                    <img src="images/materi/BODY/head/155.png" alt="Option A">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/BODY/hand/173.png" alt="Option B">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/BODY/finger/176.png" alt="Option C">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/BODY/foot/178.png" alt="Option D">
+                </div>
+            </div>
+
+            <!-- Soal 8 -->
+            <div class="question" id="question8">
+                <h1>How to say “Telinga” in English?</h1>
+                <h2>Bagaimana cara mengatakan “telinga” dalam Bahasa Inggris?</h2>
+            </div>
+            <div class="options" onclick="selectAnswer(event, 'question8')">
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/BODY/eyes/158.png" alt="Option A">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/BODY/hand/173.png" alt="Option B">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/BODY/head/155.png" alt="Option C">
+                </div>
+                <div class="option" data-value="true" data-status="true">
+                    <img src="images/materi/BODY/ear/164.png" alt="Option D">
+                </div>
+            </div>
+
+            <!-- Soal 9 -->
+            <div class="question" id="question9">
+                <h1>I have a father and mother. They are my ...</h1>
+                <h2>Saya memiliki Ayah dan Ibu. Mereka adalah...</h2>
+            </div>
+            <div class="options" onclick="selectAnswer(event, 'question9')">
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/FAMILY/family/278.png" alt="Option A">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/FAMILY/daughter/272.png" alt="Option B">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/FAMILY/son/269.png" alt="Option C">
+                </div>
+                <div class="option" data-value="true" data-status="true">
+                    <img src="images/materi/FAMILY/parent/275.png" alt="Option D">
+                </div>
+            </div>
+
+            <!-- Soal 10 -->
+            <div class="question" id="question10">
+                <h1>My mother's mother is my ....</h1>
+                <h2>ibu dari Ibuku adalah...</h2>
+            </div>
+            <div class="options" onclick="selectAnswer(event, 'question10')">
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/FAMILY/mother/254.png" alt="Option A">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/FAMILY/father/251.png" alt="Option B">
+                </div>
+                <div class="option" data-value="true" data-status="true">
+                    <img src="images/materi/FAMILY/grandmother/260.png" alt="Option C">
+                </div>
+                <div class="option" data-value="false" data-status="false">
+                    <img src="images/materi/FAMILY/grandfather/257.png" alt="Option D">
+                </div>
+            </div>
+
+            <button type="button" onclick="submitQuiz()">Submit</button>
+        
+            <!-- Tambahkan elemen pop-up -->
+            <div class="popup" id="popup">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

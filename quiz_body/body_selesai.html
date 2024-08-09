@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>family</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Butler:wght@400;700&display=swap');
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden; /* Mencegah scrolling */
+            /* min-width: 600px; 
+            min-height: 400px;  */
+        }
+
+        .body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-image: url('../images/BACKGROUND_SUSUN_KATA.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .carousel-container {
+            /* background-color: white; */
+            width: 80%;
+            /* height: 80%; */
+            margin: 30px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel {
+            /* background-image: url(../images/BACKGROUND_CAROSEL.png); */
+            background-size: cover;
+            /* background-color: #f4f4f4; */
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            /* border: 5px solid #3498db;  */
+            /* border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
+        }
+
+        .carousel-item {
+            /* background: rgba(255, 254, 254, 0.2); */
+            min-width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-around;
+            border-right-color: transparent;
+            border: 5px solid transparent;
+            border-radius: 15px;
+            flex-wrap: wrap;
+        }
+
+
+        .carousel-item img {
+            width: 35%; /* Mengatur lebar gambar agar ada jarak di antara gambar */
+            height: auto;
+            display: block;
+            /* margin: 10px;  */
+        }
+
+
+        .back-button {
+            background-image: url(../images/BUTTON_X.png);
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+            display: block;
+            margin-top: 20px;
+            border-radius: 15px;
+            margin-bottom: 600px;
+            margin-left: 50px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 110%;
+        }
+
+        tr, td {
+            /* border: 5px solid #000000; */
+            text-align: center;
+            align-items: center;
+            padding: 8px;
+            /* font-family: 'Comic Sans MS'; */
+        }
+
+        .kotak {
+            background-image: url(../images/KOTAK_SUSUN_HURUF.png);
+            background-size: cover;
+            width: 380px;
+            height: 300px;
+            text-align: center;
+            vertical-align: middle;
+            text-align: center;
+            /* height: 100px; */
+        }
+
+
+        h1 h2 {
+            font-size: 500px;
+        }
+
+        .gambar {
+            /* background-image: url(../images/KOTAK_GAMBAR.png); */
+            background-size: cover;
+            /* width: 400px;
+            height: 250px; */
+            /* cursor: move; */
+            /* height: 700px; */
+        }
+
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            background-color: transparent;
+        }
+
+        .huruf {
+            /* background-image: url(../images/KOTAK_KATA.png); */
+            background-size: cover;
+            background-color: transparent;
+            width: 300px;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .transparent-background {
+            background-color: transparent !important;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgb(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .popup img {
+            max-width: 500px;
+            height: auto;
+            margin-top: 250px;
+            /* border: 2px solid white; */
+            border-radius: 10px;
+            background-color: transparent;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(5px) rotate(0deg); }
+            50% { transform: translateX(-5px) rotate(0deg); }
+            75% { transform: translateX(5px) rotate(0deg); }
+            100% { transform: translateX(-5px) rotate(0deg); }
+        }
+
+        .shake {
+            animation: shake 2s ease-in-out;
+        }
+
+        .buttons {
+            margin: 10%;
+            text-align: center;
+        }
+
+        .btn-hover {
+            width: 300px;
+            font-size: 30px;
+            font-weight: 600;
+            color: #fff;
+            cursor: pointer;
+            margin: 20px;
+            height: 55px;
+            text-align:center;
+            border: none;
+            background-size: 300% 100%;
+
+            border-radius: 50px;
+            moz-transition: all .4s ease-in-out;
+            -o-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+        }
+
+        .btn-hover:hover {
+            background-position: 100% 0;
+            moz-transition: all .4s ease-in-out;
+            -o-transition: all .4s ease-in-out;
+            -webkit-transition: all .4s ease-in-out;
+            transition: all .4s ease-in-out;
+        }
+
+        .btn-hover:focus {
+            outline: none;
+        }
+
+        .btn-hover.color-5 {
+            background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+            box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Mengambil elemen audio
+            var audio = document.getElementById("myAudio");
+
+            // Memeriksa apakah elemen audio ditemukan sebelum menetapkan event listener
+            if (audio) {
+                // Menetapkan event listener untuk mengulang audio ketika durasinya habis
+                audio.addEventListener("ended", function() {
+                    audio.currentTime = 0; // Mengatur kembali waktu pemutaran ke awal
+                    audio.play(); // Memulai kembali pemutaran
+                });
+            } else {
+                console.error("Element with ID 'myAudio' not found.");
+            }
+        });
+    </script>
+    <audio id="myAudio" autoplay loop>
+        <source src="/music/spotifydown.com - If You're Happy and You Know It.mp3" type="mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="body">
+        <a href="../optionPageQuiz.html" class="back-button"></a>
+        <div class="carousel-container">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-item">
+                        <table>
+                            <tr>
+                                <td colspan="2" style="font-family: 'Butler', sans-serif; text-shadow: -5px -5px 5px white, 5px -5px 5px white, -5px 5px 5px white, 5px 5px 5px white;"> 
+                                    <img src="../images/HEBAT.png" alt="">
+                                    <h1 style="color: red; font-weight: bold; font-size: 40px;">
+                                        Kamu sudah berhasil menyelesaikan latihan nama - nama anggota tubuh dalam Bahasa Inggris! 
+                                    </h1>
+                                    <h2 style="color: blue; font-weight: bold; font-size: 28px;">
+                                        Apakah kamu ingin mencoba materi lainnya?
+                                    </h2>
+                                    <button class="btn-hover color-5" onclick="redirectToMenuPage()">Ya!</button>
+                                </td>
+                            </tr> 
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function redirectToMenuPage() {
+                window.location.href = "../optionPage.html";
+            }
+
+            function closePopup() {
+                var popup = document.getElementById("popup");
+                popup.style.display = "none";
+            }
+        </script>
+        
+        <div class="popup" id="popup">
+            <span onclick="closePopup()" class="close">&times;</span>
+        </div>
+    </div>
+</body>
+</html>

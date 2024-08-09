@@ -1,0 +1,179 @@
+/* styles.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 400vh;
+    background-image: url(images/BACKGROUND_MENU_BELAJAR_DAN_QUIZ.png);
+    background-size: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.container {
+    background: rgba(255, 254, 254, 0.5);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 80%; /* Adjust the width as needed */
+    /* height: 50%; */
+    margin: auto; /* Center the container */
+}
+
+h1 {
+    text-align: center;
+    color: green; 
+    font-weight: bold; 
+    font-size: 30px;
+    font-family: 'Butler', sans-serif; 
+    text-shadow: -5px -5px 5px white, 5px -5px 5px white, -5px 5px 5px white, 5px 5px 5px white;
+}
+
+h2 {
+    text-align: center;
+    color: blue;
+    font-weight: bold; 
+    font-size: 20px;
+    font-family: 'Butler', sans-serif; 
+    text-shadow: -5px -5px 5px white, 5px -5px 5px white, -5px 5px 5px white, 5px 5px 5px white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+}
+
+input {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 40px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: large;
+    font-size: 50px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between; /* Membuat opsi jawaban berada di sisi berlawanan */
+    flex-wrap: wrap; /* Memungkinkan opsi jawaban untuk pindah ke baris berikutnya jika tidak cukup ruang */
+    border-bottom: 1px solid black;
+}
+
+/* .option img {
+    background-image: url(/images/KOTAK_COCOK.png);
+    background-size: cover;
+    width: 500px;
+    height: 200px;
+} */
+
+.option {
+    border: 5px solid blue;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    flex-basis: 48%;
+    border-radius: 10px; /* Menambahkan radius sudut */
+}
+
+
+.option input[type="radio"] {
+    margin-bottom: 5px;
+}
+
+.option img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+/* Tetapkan style untuk efek hover */
+.option:hover {
+    border: 5px solid #4caf50;
+    cursor: pointer;
+}
+
+/* Tetapkan style untuk opsi yang dipilih */
+.option.selected {
+    border: 2px solid #4caf50;
+    background-color: #45a049;
+}
+
+/* Tambahkan ini pada bagian CSS Anda atau buat file eksternal .css */
+.popup {
+    display: none;
+    position: fixed;
+    max-width: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: transparent;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); */
+    z-index: 1000;
+}
+
+.popup img {
+    max-width: 100%;
+    height: auto;
+    background: transparent;
+    animation: vibrate 2s ease-in-out;
+}
+
+@keyframes vibrate {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-5px);
+    }
+    50% {
+        transform: translateX(5px);
+    }
+    75% {
+        transform: translateX(-5px);
+    }
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+}
+
+p {
+    font-size: 100px;
+    background: rgba(255, 254, 254);
+    border: 2px solid red;
+    color: red;
+    text-align: center;
+    text-shadow: -5px -5px 5px white, 5px -5px 5px white, -5px 5px 5px white, 5px 5px 5px white;
+    font-family: 'Butler', sans-serif;
+}

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option Page Quiz</title>
+    <link rel="stylesheet" href="optionPageQuiz.css">
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Mengambil elemen audio
+            var audio = document.getElementById("myAudio");
+
+            // Memeriksa apakah elemen audio ditemukan sebelum menetapkan event listener
+            if (audio) {
+                // Menetapkan event listener untuk mengulang audio ketika durasinya habis
+                audio.addEventListener("ended", function() {
+                    audio.currentTime = 0; // Mengatur kembali waktu pemutaran ke awal
+                    audio.play(); // Memulai kembali pemutaran
+                });
+            } else {
+                console.error("Element with ID 'myAudio' not found.");
+            }
+        });
+    </script>
+    <audio id="myAudio" autoplay loop>
+        <source src="/music/spotifydown.com - If You're Happy and You Know It.mp3" type="mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="body">
+        <a href="menuPage.html" class="back-button"></a>
+        <div class="container">
+            
+            <table>
+                <tr>
+                    <td>
+                        <a href="materi_html/animal.html">
+                            <img src="images/button_materi/81.png" alt="Gambar 1">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="materi_html/fruit.html">
+                            <img src="images/button_materi/82.png" alt="Gambar 2">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="materi_html/number.html">
+                            <img src="images/button_materi/83.png" alt="Gambar 3">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="materi_html/day.html">
+                            <img src="images/button_materi/87.png" alt="Gambar 7">
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="materi_html/family.html">
+                            <img src="images/button_materi/84.png" alt="Gambar 4">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="materi_html/body.html">
+                            <img src="images/button_materi/85.png" alt="Gambar 5">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="materi_html/color.html">
+                            <img src="images/button_materi/86.png" alt="Gambar 6">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="materi_html/month.html">
+                            <img src="images/button_materi/88.png" alt="Gambar 8">
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

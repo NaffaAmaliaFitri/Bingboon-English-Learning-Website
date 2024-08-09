@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="startPage.css">
+    <title>BINGBOON - Belajar Bahasa Inggris</title>
+
+    <script>
+        function redirectToMenuPage() {
+            window.location.href = "menuPage.html";
+        }
+    </script>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Mengambil elemen audio
+            var audio = document.getElementById("myAudio");
+
+            // Memeriksa apakah elemen audio ditemukan sebelum menetapkan event listener
+            if (audio) {
+                // Menetapkan event listener untuk mengulang audio ketika durasinya habis
+                audio.addEventListener("ended", function() {
+                    audio.currentTime = 0; // Mengatur kembali waktu pemutaran ke awal
+                    audio.play(); // Memulai kembali pemutaran
+                });
+            } else {
+                console.error("Element with ID 'myAudio' not found.");
+            }
+        });
+    </script>
+    <audio id="myAudio" autoplay loop>
+        <source src="/music/spotifydown.com - If You're Happy and You Know It.mp3" type="mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="body">
+        <div class="gajah">
+            <img src="images/GAJAH.png" alt="gajah">
+        </div>
+        <div class="container">
+            <img src="images/BINGBOON.png" alt="BINGBOON Logo" class="logo1">
+            <img src="images/BELAJAR_BAHASA_INGGRIS.png" alt="Belajar Bahasa Inggris Logo" class="logo2">
+            <button class="btn-hover color-5" onclick="redirectToMenuPage()">START</button>
+
+        </div>
+        <div class="harimau">
+            <img src="images/HARIMAU.png" alt="harimau">
+        </div>
+    </div>
+</body>
+</html>

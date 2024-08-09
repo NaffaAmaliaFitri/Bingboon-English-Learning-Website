@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Butler:wght@400;700&display=swap');
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden; /* Mencegah scrolling */
+            /* min-width: 600px; 
+            min-height: 400px;  */
+        }
+
+        .body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-image: url('../images/BACKGROUND_SUSUN_KATA.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .carousel-container {
+            /* background-color: white; */
+            width: 80%;
+            /* height: 80%; */
+            margin: 30px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel {
+            /* background-image: url(../images/BACKGROUND_CAROSEL.png); */
+            background-size: cover;
+            /* background-color: #f4f4f4; */
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            /* border: 5px solid #3498db;  */
+            /* border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
+        }
+
+        .carousel-item {
+            /* background: rgba(255, 254, 254, 0.2); */
+            min-width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-around;
+            border-right-color: transparent;
+            border: 5px solid transparent;
+            border-radius: 15px;
+            flex-wrap: wrap;
+        }
+
+
+        .carousel-item img {
+            width: 35%; /* Mengatur lebar gambar agar ada jarak di antara gambar */
+            height: auto;
+            display: block;
+            /* margin: 10px;  */
+        }
+
+
+        .back-button {
+            background-image: url(../images/BUTTON_X.png);
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+            display: block;
+            margin-top: 20px;
+            border-radius: 15px;
+            margin-bottom: 600px;
+            margin-left: 50px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 110%;
+        }
+
+        tr, td {
+            /* border: 5px solid #000000; */
+            text-align: center;
+            align-items: center;
+            padding: 8px;
+            /* font-family: 'Comic Sans MS'; */
+        }
+
+        .kotak {
+            background-image: url(../images/KOTAK_SUSUN_HURUF.png);
+            background-size: cover;
+            width: 600px;
+            height: 200px;
+            text-align: center;
+            vertical-align: middle;
+            text-align: center;
+            /* height: 100px; */
+        }
+
+
+        h1 h2 {
+            font-size: 500px;
+        }
+
+        .gambar {
+            /* background-image: url(../images/KOTAK_GAMBAR.png); */
+            background-size: cover;
+            /* width: 400px;
+            height: 250px; */
+            /* cursor: move; */
+            /* height: 700px; */
+        }
+
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            background-color: transparent;
+        }
+
+        .huruf {
+            /* background-image: url(../images/KOTAK_KATA.png); */
+            background-size: cover;
+            background-color: transparent;
+            width: 300px;
+            height: 300px;
+            cursor: pointer;
+        }
+
+        .transparent-background {
+            background-color: transparent !important;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgb(0, 0, 0, 0.5);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .popup img {
+            max-width: 500px;
+            height: auto;
+            margin-top: 250px;
+            /* border: 2px solid white; */
+            border-radius: 10px;
+            background-color: transparent;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(5px) rotate(0deg); }
+            50% { transform: translateX(-5px) rotate(0deg); }
+            75% { transform: translateX(5px) rotate(0deg); }
+            100% { transform: translateX(-5px) rotate(0deg); }
+        }
+
+        .shake {
+            animation: shake 2s ease-in-out;
+        }
+
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Mengambil elemen audio
+            var audio = document.getElementById("myAudio");
+
+            // Memeriksa apakah elemen audio ditemukan sebelum menetapkan event listener
+            if (audio) {
+                // Menetapkan event listener untuk mengulang audio ketika durasinya habis
+                audio.addEventListener("ended", function() {
+                    audio.currentTime = 0; // Mengatur kembali waktu pemutaran ke awal
+                    audio.play(); // Memulai kembali pemutaran
+                });
+            } else {
+                console.error("Element with ID 'myAudio' not found.");
+            }
+        });
+    </script>
+    <audio id="myAudio" autoplay loop>
+        <source src="/music/spotifydown.com - If You're Happy and You Know It.mp3" type="mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="body">
+        <a href="../optionPageQuiz.html" class="back-button"></a>
+        <div class="carousel-container">
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="carousel-item">
+                        <table>
+                            <tr>
+                                <td colspan="6" id="gambar1" class="gambar">
+                                    <img src="../images/materi/COLOR/purple/148.png" alt="">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="kotak" id="kotak1" ondrop="drop(event, 'kotak1')" ondragover="allowDrop(event)"></td>
+                                <td class="kotak" id="kotak2" ondrop="drop(event, 'kotak2')" ondragover="allowDrop(event)"></td>
+                                <td class="kotak" id="kotak3" ondrop="drop(event, 'kotak3')" ondragover="allowDrop(event)"></td>
+                                <td class="kotak" id="kotak4" ondrop="drop(event, 'kotak4')" ondragover="allowDrop(event)"></td>
+                                <td class="kotak" id="kotak5" ondrop="drop(event, 'kotak5')" ondragover="allowDrop(event)"></td>
+                                <td class="kotak" id="kotak6" ondrop="drop(event, 'kotak6')" ondragover="allowDrop(event)"></td>
+                            </tr>
+                            <tr>
+                                <td class="huruf"><img id="huruf3" src="../images/HURUF/r.png" alt="" draggable="true" ondragstart="drag(event)" ondragend="dragend(event)"></td>
+                                <td class="huruf"><img id="huruf2" src="../images/HURUF/u.png" alt="" draggable="true" ondragstart="drag(event)" ondragend="dragend(event)"></td>
+                                <td class="huruf"><img id="huruf1" src="../images/HURUF/p.png" alt="" draggable="true" ondragstart="drag(event)" ondragend="dragend(event)"></td>
+                                <td class="huruf"><img id="huruf6" src="../images/HURUF/e.png" alt="" draggable="true" ondragstart="drag(event)" ondragend="dragend(event)"></td>
+                                <td class="huruf"><img id="huruf5" src="../images/HURUF/l.png" alt="" draggable="true" ondragstart="drag(event)" ondragend="dragend(event)"></td>
+                                <td class="huruf"><img id="huruf4" src="../images/HURUF/p.png" alt="" draggable="true" ondragstart="drag(event)" ondragend="dragend(event)"></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function allowDrop(event) {
+                event.preventDefault(); /* Prevent the default behavior of the drop */
+            }
+        
+            function drag(event) {
+                var draggedElement = event.target;
+                draggedElement.classList.add("transparent-background");
+                event.dataTransfer.setData("text", event.target.id);
+            }
+        
+            function dragend(event) {
+                var draggedElement = event.target;
+                draggedElement.classList.remove("transparent-background");
+                checkAllFilled(); // Check if all drop zones are filled after dragging ends
+            }
+        
+            function drop(event, targetId) {
+                event.preventDefault();
+                var data = event.dataTransfer.getData("text");
+                var draggedElement = document.getElementById(data);
+                var dropZone = document.getElementById(targetId);
+        
+                /* Check if the dragged element matches the expected target */
+                if (data.includes('huruf1') && targetId.includes('kotak1')) {
+                    /* Append the dragged element to the correct drop zone */
+                    dropZone.appendChild(draggedElement);
+                } else if (data.includes('huruf2') && targetId.includes('kotak2')) {
+                    /* Append the dragged element to the correct drop zone */
+                    dropZone.appendChild(draggedElement);
+                } else if (data.includes('huruf3') && targetId.includes('kotak3')) {
+                    /* Append the dragged element to the correct drop zone */
+                    dropZone.appendChild(draggedElement);
+                } else if (data.includes('huruf4') && targetId.includes('kotak4')) {
+                    /* Append the dragged element to the correct drop zone */
+                    dropZone.appendChild(draggedElement);
+                } else if (data.includes('huruf5') && targetId.includes('kotak5')) {
+                    /* Append the dragged element to the correct drop zone */
+                    dropZone.appendChild(draggedElement);
+                } else if (data.includes('huruf6') && targetId.includes('kotak6')) {
+                    /* Append the dragged element to the correct drop zone */
+                    dropZone.appendChild(draggedElement);
+                }
+        
+                checkAllFilled(); // Check if all drop zones are filled after dropping
+            }
+        
+            function checkAllFilled() {
+                var kotak1 = document.getElementById('kotak1').childElementCount;
+                var kotak2 = document.getElementById('kotak2').childElementCount;
+                var kotak3 = document.getElementById('kotak3').childElementCount;
+                var kotak4 = document.getElementById('kotak4').childElementCount;
+                var kotak5 = document.getElementById('kotak5').childElementCount;
+                var kotak6 = document.getElementById('kotak6').childElementCount;
+        
+                if (kotak1 > 0 && kotak2 > 0 && kotak3 > 0 && kotak4 > 0 && kotak5 > 0 && kotak6 > 0) {
+                    // Show popup with dropped images
+                    showPopup();
+                }
+            }
+        
+            function showPopup() {
+                var popup = document.getElementById("popup");
+                var kotak1Image = document.getElementById("huruf1").cloneNode(true);
+                var kotak2Image = document.getElementById("huruf2").cloneNode(true);
+                var kotak3Image = document.getElementById("huruf3").cloneNode(true);
+                var kotak4Image = document.getElementById("huruf4").cloneNode(true);
+                var kotak5Image = document.getElementById("huruf5").cloneNode(true);
+                var kotak6Image = document.getElementById("huruf6").cloneNode(true);
+                
+                var hebatImage = document.createElement("img");
+                hebatImage.src = "../images/HEBAT.png";
+                hebatImage.alt = "Hebat Image";
+                
+                popup.innerHTML = "";
+                popup.appendChild(hebatImage);
+
+                // Add the shake class to trigger the vibration effect
+                popup.classList.add("shake");
+
+                popup.style.display = "block";
+
+                // Remove the shake class after the animation completes
+                setTimeout(function() {
+                    popup.classList.remove("shake");
+                    window.location.href = 'color13.html';
+                }, 2000);
+            }
+
+        
+            function closePopup() {
+                var popup = document.getElementById("popup");
+                popup.style.display = "none";
+            }
+        </script>
+        
+        <div class="popup" id="popup">
+            <span onclick="closePopup()" class="close">&times;</span>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>body</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Butler:wght@400;700&display=swap');
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow: hidden; /* Mencegah scrolling */
+            /* min-width: 600px; 
+            min-height: 400px;  */
+        }
+
+        .body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            background-image: url('../images/BACKGROUND_PILGAN.png');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .carousel-container {
+            /* background-color: white; */
+            width: 80%;
+            /* height: 80%; */
+            margin: 30px auto;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .carousel {
+            /* background-image: url(../images/BACKGROUND_CAROSEL.png); */
+            background-size: cover;
+            /* background-color: #f4f4f4; */
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            /* border: 5px solid #3498db;  */
+            /* border-radius: 10px; 
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); */
+        }
+
+        .carousel-item {
+            /* background: rgba(255, 254, 254, 0.2); */
+            min-width: 100%;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: space-around;
+            border-right-color: transparent;
+            border: 5px solid transparent;
+            border-radius: 15px;
+            flex-wrap: wrap;
+        }
+
+
+        .carousel-item img {
+            width: 35%; /* Mengatur lebar gambar agar ada jarak di antara gambar */
+            height: auto;
+            display: block;
+            /* margin: 10px;  */
+        }
+
+        .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 40px;
+            cursor: pointer;
+            user-select: none;
+            border: 5px solid white;
+            border-radius: 15px;
+            background-color: #f4f4f4;
+        }
+
+        .prev {
+            left: 10px;
+            background-image: url(../images/BUTTON_BACK.png);
+            width: 50px;
+            height: 50px;
+            background-size: cover;
+            display: block;
+        }
+
+        .next {
+            right: 10px;
+            background-image: url(../images/BUTTON_NEXT.png);
+            width: 50px;
+            height: 50px;
+            background-size: cover;
+            display: block;
+        }
+
+
+        .back-button {
+            background-image: url(../images/BUTTON_X.png);
+            width: 100px;
+            height: 100px;
+            background-size: cover;
+            display: block;
+            margin-bottom: 600px;
+            margin-left: 50px;
+            border-radius: 15px;
+        }
+
+        /* .back-button:hover {
+            background-color: #2980b9;
+        } */
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        tr, td {
+            /* border: 1px solid #dddddd; */
+            text-align: center;
+            align-items: center;
+            padding: 8px;
+            /* font-family: 'Comic Sans MS'; */
+        }
+
+        tr {
+            /* background-color: transparent; */
+        }
+
+        
+        .pilgan-benar {
+            background-image: url(../images/KOTAK_PILGAN.png);
+            background-size: cover;
+            width: 200px;
+            text-align: center;
+            vertical-align: middle;
+            text-align: center;
+            /* height: 100px; */
+
+        }
+
+        .pilgan-salah1 {
+            background-image: url(../images/KOTAK_PILGAN.png);
+            background-size: cover;
+            width: 200px;
+            text-align: center;
+            vertical-align: middle;
+            text-align: center;
+            /* height: 100px; */
+
+        }
+
+        .pilgan-salah2 {
+            background-image: url(../images/KOTAK_PILGAN.png);
+            background-size: cover;
+            width: 200px;
+            text-align: center;
+            vertical-align: middle;
+            text-align: center;
+            /* height: 100px; */
+
+        }
+
+        .pilgan-salah3 {
+            background-image: url(../images/KOTAK_PILGAN.png);
+            background-size: cover;
+            width: 200px;
+            text-align: center;
+            vertical-align: middle;
+            text-align: center;
+            /* height: 100px; */
+            
+        }
+        
+        .pilgan-benar img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .pilgan-salah1 img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .pilgan-salah2 img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        
+        .pilgan-salah3 img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+
+        h1 h2 {
+            font-size: 500px;
+        }
+        
+        .popup-container {
+            display: none;
+            position: fixed;
+            /* top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); */
+            width: 110%;
+            height: 110%;
+            background: rgb(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+
+        .popup {
+            background: transparent;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .popup img {
+            max-width: 500px;
+            height: auto;
+            margin-top: 10px;
+            background-color: transparent; 
+        }
+        
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px) rotate(0deg); }
+            50% { transform: translateX(5px) rotate(0deg); }
+            75% { transform: translateX(-5px) rotate(0deg); }
+            100% { transform: translateX(5px) rotate(0deg); }
+        }
+
+        .popup-container.shake {
+            animation: shake 2s ease-in-out;
+        }
+        
+        .gambar {
+            background-image: url(../images/materi/BODY/hair/160.png);
+            background-size: cover;
+            width: 300px;
+            
+            /* height: 700px; */
+        }
+        </style>
+</head>
+<body>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Mengambil elemen audio
+            var audio = document.getElementById("myAudio");
+
+            // Memeriksa apakah elemen audio ditemukan sebelum menetapkan event listener
+            if (audio) {
+                // Menetapkan event listener untuk mengulang audio ketika durasinya habis
+                audio.addEventListener("ended", function() {
+                    audio.currentTime = 0; // Mengatur kembali waktu pemutaran ke awal
+                    audio.play(); // Memulai kembali pemutaran
+                });
+            } else {
+                console.error("Element with ID 'myAudio' not found.");
+            }
+        });
+    </script>
+    <audio id="myAudio" autoplay loop>
+        <source src="/music/spotifydown.com - If You're Happy and You Know It.mp3" type="mp3">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="body">
+        <a href="../optionPage.html" class="back-button"></a>
+        <div class="carousel-container">
+            <div class="carousel-container">
+                <!-- <a href="optionPage.html" class="back-button"></a> -->
+                <div class="carousel">
+                    <!-- Carousel Item 1 -->
+                    <div class="carousel-item">
+                        <table>     
+                            <tr>
+                                <td colspan="2" style="font-family: 'Butler', sans-serif; text-shadow: -5px -5px 5px white, 5px -5px 5px white, -5px 5px 5px white, 5px 5px 5px white;"> 
+                                    <h1 style="color: red; font-weight: bold; font-size: 40px;">
+                                        My head is covered by. 
+                                    </h1>
+                                    <h2 style="color: blue; font-weight: bold; font-size: 28px;">
+                                        (kepalaku ditutupi oleh)
+                                    </h2>
+                                </td>
+                            </tr>                       
+                            <tr>
+                                <td rowspan="4" class="gambar"></td>
+                                <td class="pilgan-benar"><a href=""><img src="../images/materi/BODY/hair/161.png" alt=""></a></td>
+                            </tr>
+                            <tr>
+                                <td class="pilgan-salah2"><a href=""><img src="../images/materi/BODY/finger/176.png" alt=""></a></td>
+                            </tr>
+                            <tr>
+                                <td class="pilgan-salah1"><a href=""><img src="../images/materi/BODY/foot/178.png" alt=""></a></td>
+                            </tr>
+                            <tr>
+                                <td class="pilgan-salah3"><a href=""><img src="../images/materi/BODY/eyebrow/184.png" alt=""></a></td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Tambahkan pop-up container dan element pop-up -->
+        <div class="popup-container" id="popupContainer">
+            <div class="popup" id="popupContent">
+            </div>
+        </div>
+
+        <script>
+            // Fungsi untuk menampilkan pop-up dengan pesan
+            function showPopup(isCorrect) {
+                var popupContainer = document.getElementById('popupContainer');
+                var popupContent = document.getElementById('popupContent');
+        
+                // Tentukan link gambar yang benar
+                var correctImageLink = '../images/materi/ANIMAL/cat/6.png';
+        
+                // Tentukan pesan dan gambar berdasarkan jawaban benar atau salah
+                var message, imageSrc;
+        
+                if (isCorrect) {
+                    imageSrc = '../images/COBA_LAGI.png';
+                } else {
+                    imageSrc = '../images/HEBAT.png';
+                }
+        
+                // Isi konten pop-up
+                popupContent.innerHTML = '<img src="' + imageSrc + '" alt="Result Image">';
+        
+                // Tampilkan pop-up
+                popupContainer.style.display = 'flex';
+
+                // Tambahkan kelas shake untuk animasi bergetar
+                popupContainer.classList.add('shake');
+
+                // Setelah 2 detik, sembunyikan pop-up dan hapus kelas shake
+                setTimeout(function () {
+                    hidePopup();
+                    popupContainer.classList.remove('shake');
+
+                    if (!isCorrect) {
+                        window.location.href = 'body3.html'; // Ganti dengan halaman selanjutnya yang diinginkan
+                    }
+
+                }, 2000);
+            }
+        
+            // Fungsi untuk menyembunyikan pop-up
+            function hidePopup() {
+                var popupContainer = document.getElementById('popupContainer');
+                popupContainer.style.display = 'none';
+            }
+        
+            // Tambahkan event listener untuk pilihan jawaban benar
+            var pilganBenar = document.querySelector('.pilgan-benar');
+            pilganBenar.addEventListener('click', function (event) {
+                event.preventDefault(); // Menghindari navigasi ke link
+        
+                // Ganti link_ke_mana_anda_inginkan dengan link jawaban yang benar
+                var correctAnswerLink = '../images/materi/ANIMAL/cat/6.png';
+        
+                // Periksa apakah jawaban benar atau salah
+                var isCorrect = event.currentTarget.querySelector('img').src.endsWith(correctAnswerLink);
+        
+                // Tampilkan pop-up sesuai hasil jawaban
+                showPopup(isCorrect);
+            });
+        
+            // Tambahkan event listener untuk pilihan jawaban salah
+            var pilganSalah = document.querySelector('.pilgan-salah1');
+            pilganSalah.addEventListener('click', function (event) {
+                event.preventDefault(); // Menghindari navigasi ke link
+        
+                // Ganti link_ke_mana_anda_inginkan dengan link jawaban yang benar
+                var correctAnswerLink = '../images/materi/ANIMAL/cat/6.png';
+        
+                // Periksa apakah jawaban benar atau salah
+                var isCorrect = event.currentTarget.querySelector('img').src.endsWith(correctAnswerLink);
+        
+                // Tampilkan pop-up sesuai hasil jawaban
+                showPopup(!isCorrect); // Negasi isCorrect untuk menunjukkan bahwa jawaban salah
+            });
+
+            // Tambahkan event listener untuk pilihan jawaban salah
+            var pilganSalah = document.querySelector('.pilgan-salah2');
+            pilganSalah.addEventListener('click', function (event) {
+                event.preventDefault(); // Menghindari navigasi ke link
+        
+                // Ganti link_ke_mana_anda_inginkan dengan link jawaban yang benar
+                var correctAnswerLink = '../images/materi/ANIMAL/cat/6.png';
+        
+                // Periksa apakah jawaban benar atau salah
+                var isCorrect = event.currentTarget.querySelector('img').src.endsWith(correctAnswerLink);
+        
+                // Tampilkan pop-up sesuai hasil jawaban
+                showPopup(!isCorrect); // Negasi isCorrect untuk menunjukkan bahwa jawaban salah
+            });
+
+            // Tambahkan event listener untuk pilihan jawaban salah
+            var pilganSalah = document.querySelector('.pilgan-salah3');
+            pilganSalah.addEventListener('click', function (event) {
+                event.preventDefault(); // Menghindari navigasi ke link
+        
+                // Ganti link_ke_mana_anda_inginkan dengan link jawaban yang benar
+                var correctAnswerLink = '../images/materi/ANIMAL/cat/6.png';
+        
+                // Periksa apakah jawaban benar atau salah
+                var isCorrect = event.currentTarget.querySelector('img').src.endsWith(correctAnswerLink);
+        
+                // Tampilkan pop-up sesuai hasil jawaban
+                showPopup(!isCorrect); // Negasi isCorrect untuk menunjukkan bahwa jawaban salah
+            });
+        
+            // Tambahkan event listener untuk tombol tutup pop-up
+            document.addEventListener('click', function (event) {
+                if (event.target.id === 'popupContainer' || event.target.id === 'popupContent') {
+                    hidePopup();
+                }
+            });
+        </script>
+        
+    </div>
+</body>
+</html>
